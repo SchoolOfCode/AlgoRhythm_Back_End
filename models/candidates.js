@@ -43,7 +43,7 @@ const getCandidatesById = async (id) => {
 const getCandidatesBySkill = async (skill) => {
   try {
     const result = await client.query(
-      "SELECT * FROM candidates WHERE id = $1",
+      "SELECT * FROM candidates WHERE skill = $1",
       [skill]
     );
     const candidate = result.rows;
