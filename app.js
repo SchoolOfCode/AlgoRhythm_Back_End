@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
-import cors from "cors";
+import router from "../AlgoRhythm_Back_End/route/route.js";
 
 const app = express();
 

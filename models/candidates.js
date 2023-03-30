@@ -27,10 +27,23 @@ const getCandidates = async () => {
   }
 };
 
+const getCandidatesById = async (id) => {
+  try {
+    const result = await client.query(
+      "SELECT * FROM candidates WHERE id = $1",
+      [id]
+    );
+    const candidate = result.rows;
+    return candidate;
+  } catch (err) {
+    return err;
+  }
+};
+
 const getCandidatesBySkill = async (skill) => {
   try {
     const result = await client.query(
-      "SELECT * FROM candidates WHERE skill = $1",
+      "SELECT * FROM candidates WHERE id = $1",
       [skill]
     );
     const candidate = result.rows;
@@ -40,4 +53,4 @@ const getCandidatesBySkill = async (skill) => {
   }
 };
 
-export { getCandidates, getCandidatesBySkill };
+export { getCandidates, getCandidatesBySkill, getCandidatesById };
